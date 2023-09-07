@@ -1,9 +1,11 @@
 .sidebar {
   height: 100vh;
-  max-width: 290px;
+  max-width: 360px;
   background-color: #3d435b;
 }
 
 .button-container {
   position: absolute;
+  top: 5px;
+  left: 3px;
 }

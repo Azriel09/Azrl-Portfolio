@@ -1,11 +1,7 @@
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import { Disclosure } from "@headlessui/react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
 import "./files.css";
 import {
   Box,
-  Button,
   Typography,
   ToggleButtonGroup,
   ToggleButton,
@@ -13,11 +9,12 @@ import {
 import { useState } from "react";
 import JavascriptLogo from "../../assets/javascript.svg";
 import InfoLogo from "../../assets/info.svg";
-export default function Files() {
+export default function Files({ HandleSelected }) {
   const [selected, setSelected] = useState("root");
   const [isCollapsed1, setIsCollapsed1] = useState(false);
   const [isCollapsed2, setIsCollapsed2] = useState(false);
   const [isCollapsed3, setIsCollapsed3] = useState(false);
+
   const RootDirectoryToggle = () => {
     setIsCollapsed1(!isCollapsed1);
   };
@@ -30,20 +27,23 @@ export default function Files() {
     setIsCollapsed3(!isCollapsed3);
   };
 
-  const HandleClick = (event, newSelected) => {
+  const HandleChange = (event, newSelected) => {
     if (newSelected !== null) {
       setSelected(newSelected);
+      HandleSelected(newSelected);
       console.log(newSelected);
     }
   };
 
   return (
     <div className="files-container">
+      <h3>EXPLORER</h3>
       <ToggleButtonGroup
         orientation="vertical"
         exclusive
-        onChange={HandleClick}
+        onChange={HandleChange}
         value={selected}
+        className="directory"
       >
         {/* ROOT */}
         <ToggleButton
