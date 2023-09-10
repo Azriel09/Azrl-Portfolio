@@ -29,7 +29,9 @@ export default function Sidebar({ HandleSelected }) {
         <div className="sidebar">
           <Files HandleSelected={HandleSelected} />
         </div>
-      ) : null}
+      ) : (
+        <div className="sidebar-closed"></div>
+      )}
     </div>
   );
 }

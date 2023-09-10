@@ -40,11 +40,9 @@ function a11yProps(index) {
 }
 export default function Home() {
   const [selected, setSelected] = useState([]);
-  const [value, setValue] = useState(null);
-
+  const [value, setValue] = useState();
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log(newValue);
   };
   const HandleSelected = (tab) => {
     if (
@@ -53,11 +51,17 @@ export default function Home() {
       tab === "contact" ||
       tab === "about"
     ) {
+      if (selected.indexOf(tab) === -1) {
+        setValue(selected.length);
+      } else {
+        // Switch to clicked tab in sidenav if it already exist
+        setValue(selected.indexOf(tab));
+      }
       if (!selected.includes(tab)) {
         setSelected([...selected, tab]);
-        console.log(selected);
       }
     }
+    // Switch to clicked tab in sidenav if it doesnt exist yet
   };
 
   return (
@@ -91,7 +95,7 @@ export default function Home() {
         </Box>
         {selected.map((tab, index) => {
           return (
-            <CustomTabPanel value={value} index={index}>
+            <CustomTabPanel value={value} index={index} key={index}>
               {tab}
             </CustomTabPanel>
           );

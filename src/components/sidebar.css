@@ -3,7 +3,11 @@
   max-width: 360px;
   background-color: #3d435b;
 }
-
+.sidebar-closed {
+  height: 100vh;
+  width: 70px;
+  background-color: #3d435b;
+}
 .button-container {
   position: absolute;
   top: 5px;
