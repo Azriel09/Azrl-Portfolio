@@ -1,7 +1,7 @@
 import "./App.css";
-import Home from "./pages/home";
+import Landing from "./pages/landing-page";
 function App() {
-  return <Home />;
+  return <Landing />;
 }
 
 export default App;

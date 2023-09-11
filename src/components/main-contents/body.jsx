@@ -1,6 +1,7 @@
 import About from "../../pages/about";
 import Projects from "../../pages/projects";
 import Contact from "../../pages/contact";
+import Home from "../../pages/home";
 
 export const PageSelector = (tab) => {
   switch (tab) {
@@ -10,5 +11,7 @@ export const PageSelector = (tab) => {
       return <Contact />;
     case "projects":
       return <Projects />;
+    case "home":
+      return <Home />;
   }
 };

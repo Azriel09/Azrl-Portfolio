@@ -38,8 +38,8 @@ function a11yProps(index) {
   };
 }
 export default function MainContent() {
-  const [selected, setSelected] = useState([]);
-  const [value, setValue] = useState();
+  const [selected, setSelected] = useState(["home"]);
+  const [value, setValue] = useState(0);
   const HandleChange = (event, newValue) => {
     setValue(newValue);
   };
