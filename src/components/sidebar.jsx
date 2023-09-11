@@ -2,7 +2,7 @@ import FileCopyIcon from "@mui/icons-material/FileCopy";
 import { Button } from "@mui/material";
 import "./sidebar.css";
 import { useState } from "react";
-import Files from "./sidebar-contents/files";
+import Directory from "./sidebar-contents/directory";
 export default function Sidebar({ HandleSelected }) {
   const [isOpen, setIsOpen] = useState(true);
   const SidebarToggle = () => {
@@ -27,7 +27,7 @@ export default function Sidebar({ HandleSelected }) {
       </div>
       {isOpen ? (
         <div className="sidebar">
-          <Files HandleSelected={HandleSelected} />
+          <Directory HandleSelected={HandleSelected} />
         </div>
       ) : (
         <div className="sidebar-closed"></div>
