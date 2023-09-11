@@ -20,11 +20,7 @@ function CustomTabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -126,11 +122,7 @@ export default function MainContent() {
         }}
       >
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <StyledTabs
-            value={value}
-            onChange={HandleChange}
-            aria-label="basic tabs example"
-          >
+          <StyledTabs value={value} onChange={HandleChange}>
             {selected.map((tab) => {
               return (
                 <StyledTab
@@ -149,7 +141,7 @@ export default function MainContent() {
               value={value}
               index={index}
               key={index}
-              component={<div></div>}
+              component={"span"}
             >
               {PageSelector(tab)}
             </CustomTabPanel>
