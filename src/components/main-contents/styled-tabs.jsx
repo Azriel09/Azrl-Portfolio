@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { Tabs, Tab } from "@mui/material";
-import "./main-content.css";
 
 export const StyledTabs = styled((props) => (
   <Tabs

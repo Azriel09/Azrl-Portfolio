@@ -1,0 +1,9 @@
+.close-icon {
+  visibility: hidden;
+}
+
+.MuiTab-root:hover {
+  .close-icon {
+    visibility: visible;
+  }
+}
