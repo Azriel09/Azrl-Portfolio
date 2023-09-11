@@ -39,5 +39,3 @@ export const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     },
   })
 );
-
-export const TabIcons = (props) => {};
