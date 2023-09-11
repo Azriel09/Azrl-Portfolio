@@ -7,8 +7,6 @@ export const StyledTabs = styled((props) => (
     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
   />
 ))({
-  "& .css-1kbxdc9-MuiTabs-root": { maxHeight: "50px" },
-  "& .MuiTabs-root": { maxHeight: "50px" },
   "& .MuiTabs-indicator": {
     display: "flex",
     justifyContent: "center",
@@ -25,7 +23,7 @@ export const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     textTransform: "capitalize",
     fontSize: "17px",
     color: "#4e73aa",
-
+    "& .hover": {},
     "&.MuiTab-root": {
       padding: "0",
       width: "200px",
