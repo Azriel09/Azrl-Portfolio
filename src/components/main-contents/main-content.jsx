@@ -1,12 +1,14 @@
-import { Box, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Sidebar from "../sidebar";
 import { useState } from "react";
 import PropTypes from "prop-types";
-import "./main-content.css";
+import "./main-content.scss";
 import { StyledTabs, StyledTab } from "./styled-tabs";
 import { ReactComponent as JavascriptLogo } from "../../assets/javascript.svg";
 import { ReactComponent as InfoLogo } from "../../assets/info.svg";
+import CloseIcon from "@mui/icons-material/Close";
 import { PageSelector } from "./body";
+
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -45,54 +47,70 @@ export default function MainContent() {
   const HandleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  // FOR TAB STYLING
+  const jsArr = ["home", "about", "projects"];
+  const styles = {
+    tabStyles: {
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      gap: "10px",
+    },
+    iconStyles: { height: "25px", width: "25px" },
+    closeIconStyles: { height: "20px", width: "20px" },
+  };
+
   const HandleSelected = (tab) => {
-    if (
-      tab === "projects" ||
-      tab === "home" ||
-      tab === "contact" ||
-      tab === "about"
-    ) {
+    const tabs = ["projects", "home", "contact", "about"];
+    if (tabs.includes(tab)) {
       if (selected.indexOf(tab) === -1) {
         setValue(selected.length);
       } else {
         // Switch to clicked tab in sidenav if it already exist
         setValue(selected.indexOf(tab));
       }
+      // Switch to clicked tab in sidenav if it doesnt exist yet
       if (!selected.includes(tab)) {
         setSelected([...selected, tab]);
       }
     }
-    // Switch to clicked tab in sidenav if it doesnt exist yet
+  };
+  const HandleClose = (event, tab) => {
+    event.stopPropagation();
+    const tabToRemove = tab;
+    setSelected(selected.filter((tab) => tab !== tabToRemove));
+    console.log(value);
+    if (value === 0) {
+      setValue(0);
+    } else {
+      setValue(value - 1);
+    }
   };
 
   function TabIcons(tab) {
-    const jsArr = ["home", "about", "projects"];
+    // IF TAB IS JS, USE JS ICON
     if (jsArr.includes(tab)) {
       return (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "10px",
-          }}
-        >
-          <JavascriptLogo style={{ height: "25px", width: "25px" }} />
+        <div style={styles.tabStyles}>
+          <JavascriptLogo style={styles.iconStyles} />
           {tab}
+          <CloseIcon
+            style={styles.closeIconStyles}
+            onClick={(e) => HandleClose(e, tab)}
+          />
         </div>
       );
     } else {
+      // USE INFO ICON
       return (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "10px",
-          }}
-        >
-          <InfoLogo style={{ height: "25px", width: "25px" }} />
+        <div style={styles.tabStyles}>
+          <InfoLogo style={styles.iconStyles} />
           {tab}
+          <CloseIcon
+            style={styles.closeIconStyles}
+            onClick={(e) => HandleClose(e, tab)}
+          />
         </div>
       );
     }
@@ -127,7 +145,12 @@ export default function MainContent() {
         </Box>
         {selected.map((tab, index) => {
           return (
-            <CustomTabPanel value={value} index={index} key={index}>
+            <CustomTabPanel
+              value={value}
+              index={index}
+              key={index}
+              component={<div></div>}
+            >
               {PageSelector(tab)}
             </CustomTabPanel>
           );
