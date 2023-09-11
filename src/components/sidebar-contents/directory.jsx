@@ -1,5 +1,5 @@
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import "./files.css";
+import "./directory.scss";
 import {
   Box,
   Typography,
@@ -9,7 +9,8 @@ import {
 import { useState } from "react";
 import JavascriptLogo from "../../assets/javascript.svg";
 import InfoLogo from "../../assets/info.svg";
-export default function Files({ HandleSelected }) {
+
+export default function Directory({ HandleSelected }) {
   const [selected, setSelected] = useState("root");
   const [isCollapsed1, setIsCollapsed1] = useState(false);
   const [isCollapsed2, setIsCollapsed2] = useState(false);
@@ -38,6 +39,7 @@ export default function Files({ HandleSelected }) {
   return (
     <div className="files-container">
       <h3>EXPLORER</h3>
+
       <ToggleButtonGroup
         orientation="vertical"
         exclusive
@@ -45,6 +47,12 @@ export default function Files({ HandleSelected }) {
         value={selected}
         className="directory"
       >
+        {/* THE LINES THAT SHOW UP WHEN DIRECTORY IS OPENED, IDK WHAT TO CALL THEM */}
+        <div className="line-container">
+          <div className="line-under-portfolio"></div>
+          <div className="line-under-src"></div>
+          <div className="line-under-components"></div>
+        </div>
         {/* ROOT */}
         <ToggleButton
           disableRipple
@@ -111,6 +119,41 @@ export default function Files({ HandleSelected }) {
             value="components"
             aria-label="components"
           >
+            {isCollapsed3 && isCollapsed2 ? (
+              <div>
+                <div
+                  style={{
+                    width: "1px",
+                    height: "120px",
+                    position: "absolute",
+                    backgroundColor: "gray",
+                    left: "38px",
+                    top: "-1px",
+                  }}
+                ></div>
+                <div
+                  style={{
+                    width: "1px",
+                    height: "60px",
+                    position: "absolute",
+                    backgroundColor: "gray",
+                    left: "58px",
+                    top: "25px",
+                  }}
+                ></div>
+              </div>
+            ) : (
+              <div
+                style={{
+                  width: "1px",
+                  height: "60px",
+                  position: "absolute",
+                  backgroundColor: "gray",
+                  left: "38px",
+                  top: "-1px",
+                }}
+              ></div>
+            )}
             <Box
               className="components-folder folder"
               onClick={ComponentsDirectoryToggle}
