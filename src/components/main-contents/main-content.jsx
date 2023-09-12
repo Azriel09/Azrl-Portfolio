@@ -38,10 +38,11 @@ function a11yProps(index) {
   };
 }
 export default function MainContent() {
-  const [selected, setSelected] = useState(["home"]);
-  const [value, setValue] = useState(0);
+  const [activeTabs, setActiveTabs] = useState(["home"]);
+  const [currentTab, setCurrentTab] = useState(0);
   const HandleChange = (event, newValue) => {
-    setValue(newValue);
+    console.log(newValue);
+    setCurrentTab(newValue);
   };
 
   // FOR TAB STYLING
@@ -59,29 +60,32 @@ export default function MainContent() {
 
   const HandleSelected = (tab) => {
     const tabs = ["projects", "home", "contact", "about"];
+
     if (tabs.includes(tab)) {
-      if (selected.indexOf(tab) === -1) {
-        setValue(selected.length);
+      if (activeTabs.indexOf(tab) === -1) {
+        setCurrentTab(activeTabs.length);
       } else {
         // Switch to clicked tab in sidenav if it already exist
-        setValue(selected.indexOf(tab));
+        setCurrentTab(activeTabs.indexOf(tab));
       }
       // Switch to clicked tab in sidenav if it doesnt exist yet
-      if (!selected.includes(tab)) {
-        setSelected([...selected, tab]);
+      if (!activeTabs.includes(tab)) {
+        setActiveTabs([...activeTabs, tab]);
       }
     }
   };
+
   const HandleClose = (event, tab) => {
+    // TO CLICK THROUGH THE PARENT ELEMENTS AND REACH THE CLOSE ICON BUTTON
     event.stopPropagation();
+
     const tabToRemove = tab;
-    setSelected(selected.filter((tab) => tab !== tabToRemove));
-    console.log(value);
-    if (value === 0) {
-      setValue(0);
-    } else {
-      setValue(value - 1);
+    const indexOfTabToRemove = activeTabs.indexOf(tab);
+
+    if (indexOfTabToRemove < currentTab) {
+      setCurrentTab(currentTab - 1);
     }
+    setActiveTabs(activeTabs.filter((tab) => tab !== tabToRemove));
   };
 
   function TabIcons(tab) {
@@ -128,12 +132,12 @@ export default function MainContent() {
         }}
       >
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <StyledTabs value={value} onChange={HandleChange}>
-            {selected.map((tab) => {
+          <StyledTabs value={currentTab} onChange={HandleChange}>
+            {activeTabs.map((tab) => {
               return (
                 <StyledTab
                   disableRipple
-                  {...a11yProps(value)}
+                  {...a11yProps(currentTab)}
                   label={TabIcons(tab)}
                   key={tab}
                 />
@@ -141,10 +145,10 @@ export default function MainContent() {
             })}
           </StyledTabs>
         </Box>
-        {selected.map((tab, index) => {
+        {activeTabs.map((tab, index) => {
           return (
             <CustomTabPanel
-              value={value}
+              value={currentTab}
               index={index}
               key={index}
               component={"span"}
