@@ -90,7 +90,10 @@ export default function MainContent() {
       return (
         <div style={styles.tabStyles}>
           <JavascriptLogo style={styles.iconStyles} />
-          {tab}
+          <div>
+            {tab}
+            <span style={{ textTransform: "lowercase" }}>.js</span>
+          </div>
           <CloseIcon
             style={styles.closeIconStyles}
             onClick={(e) => HandleClose(e, tab)}
@@ -102,7 +105,10 @@ export default function MainContent() {
       return (
         <div style={styles.tabStyles}>
           <InfoLogo style={styles.iconStyles} />
-          {tab}
+          <div>
+            {tab}
+            <span style={{ textTransform: "lowercase" }}>.md</span>
+          </div>
           <CloseIcon
             style={styles.closeIconStyles}
             onClick={(e) => HandleClose(e, tab)}
