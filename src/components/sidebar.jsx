@@ -9,13 +9,6 @@ export default function Sidebar({ HandleSelected }) {
     setIsOpen(!isOpen);
   };
 
-  const [tabs, setTabs] = useState({
-    about: false,
-    projects: false,
-    home: false,
-    contact: false,
-  });
-
   return (
     <div>
       <div className="button-container">

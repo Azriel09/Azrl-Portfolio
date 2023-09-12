@@ -23,7 +23,9 @@ export const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     textTransform: "capitalize",
     fontSize: "17px",
     color: "#4e73aa",
-    "& .hover": {},
+    "& .hover": {
+      color: "#fff",
+    },
     "&.MuiTab-root": {
       padding: "0",
       width: "200px",
