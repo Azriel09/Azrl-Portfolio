@@ -23,6 +23,7 @@ export const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     textTransform: "capitalize",
     fontSize: "17px",
     color: "#4e73aa",
+
     "& .hover": {
       color: "#fff",
     },
