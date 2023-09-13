@@ -1,9 +1,16 @@
 .close-icon {
   visibility: hidden;
+  height: 20px !important;
+  width: 20px !important;
 }
 
 .MuiTab-root:hover {
   .close-icon {
     visibility: visible;
+    color: #fff;
+  }
+  .close-icon:hover {
+    background-color: #3d435b;
+    border-radius: 5px;
   }
 }

@@ -1,0 +1,28 @@
+.home-container {
+  .greeting {
+    font-size: 3em;
+  }
+
+  .first-name {
+    color: #c792ea;
+  }
+
+  .brief-desc {
+    font-size: 2em;
+  }
+  .blink {
+    animation: blinking 1s steps(3, start) infinite;
+  }
+
+  @keyframes blinking {
+    to {
+      visibility: hidden;
+    }
+  }
+
+  .divider {
+    background-color: #505262;
+    height: 2px;
+    margin: 20px 0;
+  }
+}
