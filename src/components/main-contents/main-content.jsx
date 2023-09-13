@@ -40,11 +40,12 @@ function a11yProps(index) {
 export default function MainContent() {
   const [activeTabs, setActiveTabs] = useState(["home"]);
   const [currentTab, setCurrentTab] = useState(0);
+  const [scroll, setScroll] = useState("hidden");
   const HandleChange = (event, newValue) => {
     console.log(newValue);
     setCurrentTab(newValue);
   };
-
+  console.log(scroll);
   // FOR TAB STYLING
   const jsArr = ["home", "about", "projects"];
   const styles = {
@@ -120,9 +121,25 @@ export default function MainContent() {
       );
     }
   }
+
+  const isProjectSelected = () => {
+    if (activeTabs[currentTab] === "projects") {
+      return "visible";
+    } else {
+      return "hidden";
+    }
+  };
   return (
-    <Box sx={{ display: "flex", flexDirection: "row" }}>
-      <Sidebar HandleSelected={HandleSelected} />
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+      }}
+    >
+      <Sidebar
+        HandleSelected={HandleSelected}
+        overflow={activeTabs[currentTab]}
+      />
       <Box
         sx={{
           width: "100vw",

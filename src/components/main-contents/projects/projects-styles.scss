@@ -1,0 +1,64 @@
+.projects-container {
+  .header {
+    font-size: 2.5em;
+    color: #bd93f9;
+  }
+
+  .divider {
+    background-color: #505262;
+    height: 2px;
+    margin: 10px 0;
+  }
+
+  .projects-list {
+    margin-top: 40px;
+
+    .proj {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      width: 55vw;
+      margin-top: 50px;
+      gap: 20px;
+      .proj-left {
+        .proj-title {
+          color: #bd93f9;
+          font-size: 2em;
+        }
+        .proj-tools {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          gap: 20px;
+          height: 50px;
+          .javascript {
+            width: 35px;
+          }
+          .react,
+          .python {
+            width: 25px;
+          }
+          .mui {
+            width: 35px;
+            height: 50px;
+          }
+
+          .nodejs {
+            padding-top: 10px;
+            height: 30px;
+            width: 30px;
+          }
+
+          .mongodb {
+            width: 40px;
+            height: 45px;
+          }
+        }
+      }
+      .proj-right img {
+        width: 25vw;
+      }
+    }
+  }
+}

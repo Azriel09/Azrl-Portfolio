@@ -18,7 +18,10 @@ export default function ContactContainer() {
         </div>
         <div className="main">
           [<span>Github</span>] (
-          <a href="https://github.com/Azriel09">https://github.com/Azriel09</a>)
+          <a href="https://github.com/Azriel09" target="blank">
+            https://github.com/Azriel09
+          </a>
+          )
         </div>
       </div>
     </div>
