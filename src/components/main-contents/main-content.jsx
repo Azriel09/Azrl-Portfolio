@@ -55,7 +55,6 @@ export default function MainContent() {
       gap: "10px",
     },
     iconStyles: { height: "25px", width: "25px" },
-    closeIconStyles: { height: "20px", width: "20px" },
   };
 
   const HandleSelected = (tab) => {
@@ -99,7 +98,7 @@ export default function MainContent() {
             <span style={{ textTransform: "lowercase" }}>.js</span>
           </div>
           <CloseIcon
-            style={styles.closeIconStyles}
+            className="close-icon"
             onClick={(e) => HandleClose(e, tab)}
           />
         </div>
@@ -114,7 +113,7 @@ export default function MainContent() {
             <span style={{ textTransform: "lowercase" }}>.md</span>
           </div>
           <CloseIcon
-            style={styles.closeIconStyles}
+            className="close-icon"
             onClick={(e) => HandleClose(e, tab)}
           />
         </div>
