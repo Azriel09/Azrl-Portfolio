@@ -53,7 +53,12 @@ export default function Sidebar() {
 
     if (indexOfTabToRemove < currentTab) {
       setCurrentTab(currentTab - 1);
+    } else if (indexOfTabToRemove > currentTab) {
+      setCurrentTab(currentTab);
+    } else {
+      setCurrentTab(0);
     }
+
     setActiveTabs(activeTabs.filter((tab) => tab !== tabToRemove));
   };
 
