@@ -101,26 +101,24 @@ export default function Sidebar() {
   };
   return (
     <div className="sidebar-container">
-      <div className="button-container">
-        <Button onClick={SidebarToggle} className="" disableRipple>
-          <FileCopyIcon
-            sx={{ width: "45px", height: "45px", color: "white" }}
-          />
-        </Button>
-      </div>
+      <div className="button-container"></div>
       {isOpen ? (
-        <div
-          className="sidebar"
-          style={{
-            maxWidth: "360px",
-            backgroundColor: "#3d435b",
-            height: "100vh",
-          }}
-        >
+        <div className="sidebar">
+          <Button onClick={SidebarToggle} className="" disableRipple>
+            <FileCopyIcon
+              sx={{ width: "45px", height: "45px", color: "white" }}
+            />
+          </Button>
           <Directory HandleSelected={HandleSelected} />
         </div>
       ) : (
-        <div className="sidebar-closed"></div>
+        <div className="sidebar closed">
+          <Button onClick={SidebarToggle} className="" disableRipple>
+            <FileCopyIcon
+              sx={{ width: "45px", height: "45px", color: "white" }}
+            />
+          </Button>
+        </div>
       )}
       <Outlet
         context={{
