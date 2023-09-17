@@ -9,7 +9,9 @@
     height: 2px;
     margin: 10px 0;
   }
-
+  .intro {
+    font-size: 1.2em;
+  }
   .projects-list {
     margin-top: 40px;
 
@@ -21,7 +23,9 @@
       width: 55vw;
       margin-top: 50px;
       gap: 20px;
+
       .proj-left {
+        font-size: 1.2em;
         .proj-title {
           color: #bd93f9;
           font-size: 2em;
