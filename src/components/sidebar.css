@@ -3,7 +3,6 @@
   flex-direction: row;
 
   /* SIDEBAR HEIGHT WILL AUTO ADJUST WHEN A TAB HAS A HEIGHT OF OVER A 100VH */
-  overflow: hidden;
 }
 .sidebar {
   position: relative;
@@ -13,10 +12,8 @@
   max-width: 360px;
   background-color: #3d435b;
   height: 100vh;
-
+  position: fixed;
   /* SIDEBAR HEIGHT WILL AUTO ADJUST WHEN A TAB HAS A HEIGHT OF OVER A 100VH */
-  margin-bottom: -5000px;
-  padding-bottom: 5000px;
 }
 .closed {
   width: 70px;

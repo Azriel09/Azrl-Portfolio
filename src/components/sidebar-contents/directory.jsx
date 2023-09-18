@@ -32,7 +32,6 @@ export default function Directory({ HandleSelected }) {
     if (newSelected !== null) {
       setSelected(newSelected);
       HandleSelected(newSelected);
-      console.log(newSelected);
     }
   };
 

@@ -42,10 +42,33 @@ export default function MainContent() {
     currentTab: [currentTab, setCurrentTab],
     HandleChange,
     TabIcons,
+    isOpen,
   } = useOutletContext();
 
   // FOR TAB STYLING
+  function isNavOpen(open) {
+    if (open) {
+      return "330px";
+    } else {
+      return "0px";
+    }
+  }
 
+  const style = {
+    ...(isOpen
+      ? {
+          display: "flex",
+          flexDirection: "row",
+          width: "100%",
+          marginLeft: "330px",
+        }
+      : {
+          display: "flex",
+          flexDirection: "row",
+          width: "100%",
+          marginLeft: "70px",
+        }),
+  };
   const isProjectSelected = () => {
     if (activeTabs[currentTab] === "projects") {
       return "visible";
@@ -54,19 +77,21 @@ export default function MainContent() {
     }
   };
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        width: "100%",
-      }}
-    >
+    <Box sx={style}>
       <Box
         sx={{
           backgroundColor: "#292D3E",
         }}
       >
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box
+          sx={{
+            borderBottom: 1,
+            borderColor: "divider",
+            position: "fixed",
+            backgroundColor: "#292d3e",
+            width: "100%",
+          }}
+        >
           <StyledTabs value={currentTab} onChange={HandleChange}>
             {activeTabs.map((tab) => {
               return (
@@ -80,18 +105,20 @@ export default function MainContent() {
             })}
           </StyledTabs>
         </Box>
-        {activeTabs.map((tab, index) => {
-          return (
-            <CustomTabPanel
-              value={currentTab}
-              index={index}
-              key={index}
-              component={"span"}
-            >
-              {PageSelector(tab)}
-            </CustomTabPanel>
-          );
-        })}
+        <Box sx={{ marginTop: "40px" }}>
+          {activeTabs.map((tab, index) => {
+            return (
+              <CustomTabPanel
+                value={currentTab}
+                index={index}
+                key={index}
+                component={"span"}
+              >
+                {PageSelector(tab)}
+              </CustomTabPanel>
+            );
+          })}
+        </Box>
       </Box>
     </Box>
   );

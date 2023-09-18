@@ -128,6 +128,7 @@ export default function Sidebar() {
           HandleClose,
           HandleChange,
           TabIcons,
+          isOpen,
         }}
       />
     </div>

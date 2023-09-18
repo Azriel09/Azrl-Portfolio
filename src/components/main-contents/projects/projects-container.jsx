@@ -8,7 +8,21 @@ import { ReactComponent as PythonLogo } from "../../../assets/python.svg";
 import { ReactComponent as MongoDBLogo } from "../../../assets/mongodb.svg";
 import { ReactComponent as NodeJSLogo } from "../../../assets/nodejs.svg";
 import MuiLogo from "../../../assets/mui.png";
+import ProjectTab from "./project-tab";
 export default function ProjectsContainer() {
+  const projects = [
+    {
+      title: "RyoEx",
+      tools: ["js", "react", "mongodb", "nodejs", "mui"],
+      desc: "A project I made in the bootcamp, an exchange rate site with graphs that has a Login/Signup/Reset Password feature, and financial news and for easy access of their chosen currencies once they logged in on RyoEx site. It uses mongoDB as a database.",
+      links: [
+        "https://github.com/Azriel09/client",
+        "https://ryoex-change.netlify.app",
+      ],
+      image: "../../../src/assets/project-images/ryoex.png",
+    },
+    { title: "Azriel Bot", tools: ["python"] },
+  ];
   return (
     <div className="projects-container">
       <div className="header"># Personal Projects</div>
@@ -23,29 +37,17 @@ export default function ProjectsContainer() {
       </div>
       <div className="projects-list">
         {" "}
-        {/* RyoEx */}
-        <div className="proj">
-          <div className="proj-left">
-            <div className="proj-title">## RyoEx</div>
-            <div className="proj-tools">
-              <JavascriptLogo className="javascript logo" />
-              <ReactLogo className="react logo" />
-              <MongoDBLogo className="mongodb logo" />
-              <NodeJSLogo className="nodejs logo" />
-              <img src={MuiLogo} className="mui logo" />
-            </div>
-            <div className="proj-desc">
-              An exchange rate site with graphs that has a Login/Signup feature
-              to email the user about financial news and for easy access of
-              their chosen currencies once they logged in on RyoEx site. It uses
-              mongoDB as a database.{" "}
-            </div>
-            <div className="proj-links"></div>
-          </div>
-          <div className="proj-right">
-            <img src={RyoEx} />
-          </div>
-        </div>
+        {projects.map((proj) => {
+          return (
+            <ProjectTab
+              title={proj.title}
+              tools={proj.tools}
+              desc={proj.desc}
+              links={proj.links}
+              image={proj.image}
+            />
+          );
+        })}
         {/* DISCORD BOT */}
         <div className="proj">
           <div className="proj-left">
