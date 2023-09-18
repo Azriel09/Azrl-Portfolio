@@ -12,7 +12,7 @@ export default function HomeContainer() {
       <Divider className="divider" />
       <div className="introduction">
         <div className="line1">
-          I'm a passionate and obsessive, web developer in love with building
+          I'm a passionate and obsessive web developer in love with building
           applications.
         </div>
         <div className="line2">
