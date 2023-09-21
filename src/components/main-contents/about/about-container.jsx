@@ -31,7 +31,7 @@ export default function AboutContainer() {
           Bootstrap, CSS, HTML, Javascript, Material UI, MongoDB, NodeJS, Python
         </div>
         <div className="tech-third">
-          <span className="topic">Miscellaneuos: </span>Amazon AWS, Git
+          <span className="topic">Miscellaneuos: </span>AWS, Git
         </div>
       </div>
     </div>

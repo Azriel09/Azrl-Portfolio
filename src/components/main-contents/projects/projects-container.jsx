@@ -13,15 +13,34 @@ export default function ProjectsContainer() {
   const projects = [
     {
       title: "RyoEx",
-      tools: ["js", "react", "mongodb", "nodejs", "mui"],
-      desc: "A project I made in the bootcamp, an exchange rate site with graphs that has a Login/Signup/Reset Password feature, and financial news and for easy access of their chosen currencies once they logged in on RyoEx site. It uses mongoDB as a database.",
+      tools: ["js", "react", "mongodb", "nodejs", "mui", "aws"],
+      desc: "A project I made in the bootcamp, an exchange rate site with graphs that has a Login/Signup/Reset Password feature, financial news, and a dashboard for easy access of their chosen currencies once they logged in on RyoEx site. It uses mongoDB for online database. Frontend is deployed in Netlify while backend is deployed in AWS EC2",
       links: [
         "https://github.com/Azriel09/client",
         "https://ryoex-change.netlify.app",
       ],
       image: "../../../src/assets/project-images/ryoex.png",
     },
-    { title: "Azriel Bot", tools: ["python"] },
+    {
+      title: "Jhan Marmel's Gallery",
+      tools: ["js", "html", "css", "bootstrap"],
+      desc: "A personal gallery project I made during the bootcamp. It showcases my hobby to take pictures of everything and utilizes grid css in order to be displayed properly no matter what the viewer device is.",
+      links: [
+        "https://github.com/Azriel09/project-1",
+        "https://azriel09.github.io/project-1/index.html",
+      ],
+      image: "../../../src/assets/project-images/gallery/1.png",
+    },
+    {
+      title: "Azriel URL Shortener",
+      tools: ["js", "react", "mui", "sass", "mysql", "aws", "nodejs"],
+      desc: "A URL shortener that uses React as Frontend and NodeJS Express as Backend. For the online database, I chose Amazon's RDS Aurora MySQL. Both Frontend and Backend are deployed in Netlify",
+      links: [
+        "https://github.com/Azriel09/Az_short",
+        "https://az-short.netlify.app/",
+      ],
+      image: "../../../src/assets/project-images/az-short/1.png",
+    },
   ];
   return (
     <div className="projects-container">
@@ -49,22 +68,6 @@ export default function ProjectsContainer() {
           );
         })}
         {/* DISCORD BOT */}
-        <div className="proj">
-          <div className="proj-left">
-            <div className="proj-title">## Discord Bot</div>
-            <div className="proj-tools">
-              <PythonLogo className="python logo" />
-            </div>
-            <div className="proj-desc">
-              A simple discord bot that uses reddit API to send Manga chapters
-              to a channel and mentions the user.
-            </div>
-            <div className="proj-links"></div>
-          </div>
-          <div className="proj-right">
-            <img src={Discord} />
-          </div>
-        </div>
       </div>
     </div>
   );
