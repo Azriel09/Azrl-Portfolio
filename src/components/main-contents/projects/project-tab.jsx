@@ -35,7 +35,7 @@ export default function ProjectTab({ title, tools, desc, links, image }) {
       case "css":
         return <CSSLogo className="css logo" />;
       case "bootstrap":
-        return <BootstrapLogo classname="bootstrap logo" />;
+        return <BootstrapLogo className="bootstrap logo" />;
       case "aws":
         return <AWSLogo className="aws logo" />;
       case "sass":
