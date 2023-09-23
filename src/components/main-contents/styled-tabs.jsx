@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
 import { Tabs, Tab } from "@mui/material";
+import { tabsClasses } from "@mui/material/Tabs";
 
 export const StyledTabs = styled((props) => (
   <Tabs
     {...props}
+    variant="scrollable"
+    scrollButtons
     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
   />
 ))({
