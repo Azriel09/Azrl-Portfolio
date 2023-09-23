@@ -11,6 +11,7 @@ export default function ProjectsContainer() {
       links: [
         "https://github.com/Azriel09/client",
         "https://ryoex-change.netlify.app",
+        "https://github.com/Azriel09/current-server",
       ],
       image: "https://i.imgur.com/uhroamP.png",
     },
@@ -31,6 +32,7 @@ export default function ProjectsContainer() {
       links: [
         "https://github.com/Azriel09/Az_short",
         "https://az-short.netlify.app/",
+        "https://github.com/Azriel09/Az_short-backend",
       ],
       image: "https://i.imgur.com/2nqvAb4.png",
     },

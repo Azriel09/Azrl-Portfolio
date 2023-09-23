@@ -12,8 +12,6 @@ import { ReactComponent as SassLogo } from "../../../assets/sass.svg";
 import { ReactComponent as MySQLLogo } from "../../../assets/mysql3.svg";
 import MuiLogo from "../../../assets/mui.png";
 export default function ProjectTab({ title, tools, desc, links, image }) {
-  const used = [tools];
-  const link = [links];
   function projectTools(tool) {
     switch (tool) {
       case "js":
@@ -47,7 +45,6 @@ export default function ProjectTab({ title, tools, desc, links, image }) {
 
   return (
     <>
-      {" "}
       {tools && links ? (
         <div className="proj">
           <div className="proj-left">
@@ -64,6 +61,13 @@ export default function ProjectTab({ title, tools, desc, links, image }) {
                   [Github Repo]
                 </a>
               </div>
+              {links[2] ? (
+                <div>
+                  <a href={links[2]} target="blank">
+                    [Backend Repo]
+                  </a>
+                </div>
+              ) : null}
               <div className="proj-preview">
                 <a href={links[1]} target="blank">
                   [Live Preview]
