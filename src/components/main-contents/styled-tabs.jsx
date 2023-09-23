@@ -5,8 +5,6 @@ import { tabsClasses } from "@mui/material/Tabs";
 export const StyledTabs = styled((props) => (
   <Tabs
     {...props}
-    variant="scrollable"
-    scrollButtons
     TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
   />
 ))({

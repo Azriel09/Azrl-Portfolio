@@ -1,6 +1,5 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
-import { useState } from "react";
 import PropTypes from "prop-types";
 import "./main-content.scss";
 import { StyledTabs, StyledTab } from "./styled-tabs";
@@ -35,7 +34,6 @@ function a11yProps(index) {
   };
 }
 export default function MainContent() {
-  const [scroll, setScroll] = useState("hidden");
   const {
     activeTabs: [activeTabs, setActiveTabs],
     currentTab: [currentTab, setCurrentTab],
