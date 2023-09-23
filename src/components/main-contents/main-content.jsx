@@ -4,7 +4,6 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "./main-content.scss";
 import { StyledTabs, StyledTab } from "./styled-tabs";
-
 import { PageSelector } from "./page-selector";
 import { useOutletContext } from "react-router-dom";
 function CustomTabPanel(props) {
